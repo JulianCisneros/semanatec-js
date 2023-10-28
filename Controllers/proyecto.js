@@ -1,5 +1,5 @@
 const Seq = require('sequelize');
-const sequelize = require('../util/database');
+const sequelize = require('../Util/database');
 const Proyecto = sequelize.models.proyecto;
 
 exports.postAgregarProyecto = (req, res) => {

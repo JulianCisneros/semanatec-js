@@ -1,5 +1,5 @@
 const Seq = require('sequelize');
-const sequelize = require('../util/database');
+const sequelize = require('../Util/database');
 const Persona = sequelize.models.persona;
 
 exports.postAgregarPersona = (req, res) => {
