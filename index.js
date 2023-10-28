@@ -11,7 +11,8 @@ const sequelize = require('./Util/database')
 
 // Middleware: Recibe la petición, y si le falta algo, la procesa y la manda al backend
 app.use(express.json()); // Para que sepa que llegan json
-
+app.use('/persona', personaRoutes)
+app.use('/proyecto', proyectoRoutes)
 // // Mala práctica
 // app.get('/test', (request, response) => {
 //     console.log("Esto no se debe de hacer pero funciona.");

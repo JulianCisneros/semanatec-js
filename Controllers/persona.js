@@ -1,17 +1,27 @@
 const Seq = require('sequelize');
-const sequelize = require('../Util/database') // Objeto conexion
+const sequelize = require('../util/database');
 const Persona = sequelize.models.persona;
 
-exports.postAgregarPersona=(req, res)=>{
+exports.postAgregarPersona = (req, res) => {
     console.log(req.body);
-    // Para INSERT, se usa create:
     Persona.create(req.body)
-        .then(result=>{
+        .then(result => {
             console.log("Registro exitoso");
             res.send("Registro exitoso");
         })
-        .catch(error=>{
+        .catch(error => {
             console.log(error);
-            res.send("Hubo un problema")
-        })
+            res.send("Hubo un error");
+        });
+}
+
+exports.getConsultarPersona = async (req, res) => {
+    
+    try {
+        const result = await Persona.findAll()
+        res.send(result);
+    } catch (error) {
+        console.log(error);
+        res.send("Hubo un error");
+    }
 }
